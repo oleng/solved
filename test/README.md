@@ -24,4 +24,4 @@ Data store & API endpoint serving
 
 ---
 
-        2019/11 first draft
+    2019/11 first draft
