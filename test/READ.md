@@ -5,7 +5,7 @@ So that's my excuse to try some new frameworks in a hypothetical case where a fi
 
 Here's the general overview of what I think their data flow in this case will look like:
 
-![](/static/pipeline.gif)
+![test](static/pipeline.gif)
 
 Obviously every outbound data requests will be logged, so I left that out since I decided it's irrelevant for this exercise's scope.
 
