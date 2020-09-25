@@ -6,3 +6,5 @@ and hopefully as time goes on, will be filled with notes on the best solution in
 problem and solutions.
 
 As of Sept 2020, solutions are all in Python 3.
+
+[test](/tree/master/leetcode/easy.0001.two-sum.ipynb)
