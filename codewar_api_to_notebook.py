@@ -15,6 +15,7 @@ api = 'https://www.codewars.com/api/v1'
 user = '/users/deadvoid'
 katas = '/code-challenges'
 nb_ext = 'ipynb'
+directory = 'codewar'
 
 
 def get(url):
@@ -64,7 +65,7 @@ def main(data):
 
         md = [md_meta, md_challenge]
 
-        nb = create_notebook(markdown=md, code='# Solution')
+        nb = create_notebook(markdown=md, code='# Solution') # automate?
 
         notebooks[f'codewar.{rank}.{filename}'] = nb
 
@@ -77,11 +78,16 @@ if __name__ == '__main__':
 
     notebooks = main(data)
 
+    cwd = Path('.').cwd()
+    if cwd.name != 'solved':
+        root = cwd.anchor
+        idx = cwd.parts.index('solved') + 1
+        solved = Path(root + '/'.join(cwd.parts[1:idx]))
+
     for each, nb in notebooks.items():
-        filename = Path(f'{each}.{nb_ext}')
-        if not filename.exists() and filename.absolute().parent.name == 'codewar':
+        filename = Path(f'{solved}/{directory}/{each}.{nb_ext}')
+        if filename.exists():
+            continue
+        else:
             with open(filename, 'w') as fh:
                 fh.write(json.dumps(nb, indent=4))
-        else:
-            print(f'Youre in {filename.cwd()}. Aborting.')
-            break
