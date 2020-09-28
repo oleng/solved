@@ -56,12 +56,11 @@ def main(data):
         k['tags'] = tags                = details['tags']
         k['description'] = md_challenge = details['description']
 
-        md_meta = f'Title: {name}    \n' + \
-                    f'Rank: {rank}    \n' + \
-                    f'Link: {link}    \n' + \
-                    f'Datetime: {datetime}     \n' + \
-                    f'Category: {category}     \n' + \
-                    f'Tags: {tags}'
+        # uniform markdown formatting
+        md_meta = f'### {name} {rank}    \n' + \
+                    f'{link}    \n' + \
+                    f'{datetime}     \n' + \
+                    f'category: {category}, tags: {tags}'
 
         md = [md_meta, md_challenge]
 
